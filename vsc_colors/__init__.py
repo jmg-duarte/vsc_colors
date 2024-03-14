@@ -1,11 +1,10 @@
 import json
 from typing import Any, cast
+from pprint import pprint
 
 # TODO: abuse iterators to make the code less "nesty"
 
-with open(
-    "/Users/jmgd/Documents/Work/repos/oolong/themes/Oolong-color-theme.json"
-) as theme_json:
+with open("Oolong-color-theme.json") as theme_json:
     lines = theme_json.readlines()
 
 lines = [line.split("//")[0] for line in lines]
@@ -62,7 +61,5 @@ if (token_colors := theme.get("tokenColors")) is not None:
         else:
             theme_colors[color] = [key]
 
-
-from pprint import pprint
 
 pprint(theme_colors)
